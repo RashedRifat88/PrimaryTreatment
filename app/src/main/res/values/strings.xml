@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">primarytreatment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="nav_header_desc">Description</string>
+    <string name="nav_header_title">header_title</string>
+    <string name="nav_header_subtitle">header_subtitle</string>
+    <string name="title_rivers">rivers</string>
+    <string name="title_favorites">favourites</string>
+    <string name="title_map">map</string>
+
+</resources>
