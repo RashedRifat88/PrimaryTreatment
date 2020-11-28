@@ -14,28 +14,48 @@ import androidx.appcompat.widget.Toolbar
 import com.egsystem.primarytreatment.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+
 class HomeActivity : AppCompatActivity() {
+
+
+//    private lateinit var binding: ActivityHomeBinding
+
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//        binding = ActivityHomeBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
+
         setContentView(R.layout.activity_home)
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-        val navBottomView : BottomNavigationView = findViewById(R.id.bottom_navigation_view)
+        val navBottomView: BottomNavigationView = findViewById(R.id.bottom_navigation_view)
+//        val navBottomView: SSCustomBottomNavigation = findViewById(R.id.bottom_navigation_view)
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_dashboard,R.id.nav_notifications), drawerLayout)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_home,
+                R.id.nav_gallery,
+                R.id.nav_slideshow,
+                R.id.nav_dashboard,
+                R.id.nav_notifications
+            ), drawerLayout
+        )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         navBottomView.setupWithNavController(navController)
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

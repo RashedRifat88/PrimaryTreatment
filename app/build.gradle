@@ -38,9 +38,9 @@ android {
         jvmTarget = '1.8'
     }
 
-    dataBinding{
-        enabled true
-    }
+//    viewBinding{
+//        enabled true
+//    }
 
 }
 
@@ -98,7 +98,8 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
     //bottom tab animation
-    implementation 'np.com.susanthapa.curved_bottom_navigation:curved_bottom_navigation:0.6.3'
+//    implementation 'np.com.susanthapa.curved_bottom_navigation:curved_bottom_navigation:0.6.3'
+//    implementation 'com.github.simformsolutions:SSCustomBottomNavigation:1.0'
     ////
 
 }

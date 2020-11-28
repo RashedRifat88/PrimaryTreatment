@@ -21,7 +21,8 @@ allprojects {
         google()
         jcenter()
         maven {
-            url  "https://dl.bintray.com/susonthapa/curved-bottom-navigation"
+//            url  "https://dl.bintray.com/susonthapa/curved-bottom-navigation"
+           url 'https://jitpack.io'
         }
     }
 }
