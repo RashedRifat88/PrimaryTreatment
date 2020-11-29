@@ -454,6 +454,10 @@
 
     //shimmer
     <color name="background">#dddddd</color>
+    <color name="card1">#E1BEE7</color>
+    <color name="card2">#B2DFDB</color>
+    <color name="card3">#FFE0B2</color>
+    <color name="card4">#BBDEFB</color>
 
 
 </resources>

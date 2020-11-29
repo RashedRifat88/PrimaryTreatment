@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.primarytreatment">
-        <activity android:name="com.egsystem.primarytreatment.ui.fragments.activities.splash.SplashActivity"></activity>
-        <activity android:name="com.egsystem.primarytreatment.ui.MainActivity" />
         <activity android:name="com.egsystem.primarytreatment.ui.home.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name="com.egsystem.primarytreatment.ui.MainActivity" />
+        <activity android:name="com.egsystem.primarytreatment.ui.splash.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
