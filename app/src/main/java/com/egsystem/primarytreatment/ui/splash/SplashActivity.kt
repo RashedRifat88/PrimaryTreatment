@@ -3,13 +3,17 @@ package com.egsystem.primarytreatment.ui.splash
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.egsystem.primarytreatment.R
+import com.egsystem.primarytreatment.room.FirstAidItemDao
+import com.egsystem.primarytreatment.room.FirstAidItemEntity
 import com.egsystem.primarytreatment.ui.home.HomeActivity
+import com.egsystem.roomkot.FirstAidItemDatabase
 
 class SplashActivity : AppCompatActivity() {
 
@@ -30,6 +34,27 @@ class SplashActivity : AppCompatActivity() {
 
         init()
         loadAnimations()
+
+//        loadDatabaseAndData()
+    }
+
+    private fun loadDatabaseAndData() {
+        var database: FirstAidItemDao = FirstAidItemDatabase.getDatabase(application).getDao()
+
+        val insertThread = Thread {
+            database.insertData(FirstAidItemEntity(1, "column_item_name1", "column_sub_item_name1", "column_micro_item_name1", "column_item_img_url1", "column_sub_item_img_url1", "column_micro_item_img_url1", "column_micro_item_details1"))
+            database.insertData(FirstAidItemEntity(2, "column_item_name2", "column_sub_item_name2", "column_micro_item_name2", "column_item_img_url2", "column_sub_item_img_url2", "column_micro_item_img_url2", "column_micro_item_details2"))
+            database.insertData(FirstAidItemEntity(3, "column_item_name3", "column_sub_item_name3", "column_micro_item_name3", "column_item_img_url3", "column_sub_item_img_url3", "column_micro_item_img_url3", "column_micro_item_details3"))
+            database.insertData(FirstAidItemEntity(4, "column_item_name4", "column_sub_item_name4", "column_micro_item_name4", "column_item_img_url4", "column_sub_item_img_url4", "column_micro_item_img_url4", "column_micro_item_details4"))
+            database.insertData(FirstAidItemEntity(5, "column_item_name5", "column_sub_item_name5", "column_micro_item_name5", "column_item_img_url5", "column_sub_item_img_url5", "column_micro_item_img_url5", "column_micro_item_details5"))
+        }
+        insertThread.start()
+
+
+        val getDataThread = Thread {
+            Log.d("tagRifat","All Data: "+ database.getAllData())
+        }
+        getDataThread.start()
     }
 
     private fun init() {
