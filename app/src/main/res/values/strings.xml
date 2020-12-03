@@ -19,5 +19,7 @@
     <string name="accident">দুর্ঘটনা</string>
     <string name="pain">ব্যাথা</string>
     <string name="others">অন্যান্য</string>
+    <string name="doctor_chat">Doctor Chat</string>
+    <string name="bot_chat">Bot Chat</string>
 
 </resources>

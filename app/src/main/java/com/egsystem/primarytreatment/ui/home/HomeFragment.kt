@@ -72,6 +72,15 @@ class HomeFragment : Fragment() {
     }
 
 
+    private fun loadFragment(fragment: Fragment){
+//        val context: Context = requireContext()
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fl1, fragment)
+        transaction.disallowAddToBackStack()
+        transaction.commit()
+    }
+
+
 
 
 
