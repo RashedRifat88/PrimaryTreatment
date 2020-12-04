@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.egsystem.primarytreatment.R
 import com.egsystem.primarytreatment.ui.chat.chatbot.data.Message
 import com.egsystem.primarytreatment.ui.chat.chatbot.utils.BotResponse
@@ -28,6 +31,9 @@ class ChatbotFragment : Fragment() {
     private var param2: String? = null
 
     var messagesList = mutableListOf<Message>()
+    private lateinit var rv_messages: RecyclerView
+    private lateinit var btn_send: Button
+    private lateinit var et_message: EditText
 
     private lateinit var adapter: MessagingAdapter
     private val botList = listOf("Peter", "Francesca", "Luigi", "Igor")
@@ -47,6 +53,8 @@ class ChatbotFragment : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_chatbot, container, false)
         val context: Context = requireContext()
+
+        init(root, context)
 
         recyclerView()
 
@@ -79,6 +87,15 @@ class ChatbotFragment : Fragment() {
                 }
             }
         }
+    }
+
+
+
+    private fun init(view: View, context: Context) {
+        rv_messages = view.findViewById<RecyclerView>(R.id.rv_messages)
+        btn_send = view.findViewById(R.id.btn_send)
+        et_message = view.findViewById(R.id.et_message)
+
     }
 
     private fun recyclerView() {

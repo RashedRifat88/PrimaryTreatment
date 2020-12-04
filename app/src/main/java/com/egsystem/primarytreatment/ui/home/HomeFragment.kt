@@ -1,11 +1,13 @@
 package com.egsystem.primarytreatment.ui.home
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,19 +18,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.egsystem.primarytreatment.R
 import com.egsystem.primarytreatment.room.FirstAidItemDao
 import com.egsystem.primarytreatment.room.FirstAidItemEntity
+import com.egsystem.primarytreatment.ui.chat.chatbot.ui.ChatbotFragment
 import com.egsystem.primarytreatment.ui.home.adapter.SubItemAdapter
 import com.egsystem.roomkot.FirstAidItemDatabase
 
 class HomeFragment : Fragment() {
 
 
-    private val texts = arrayOf("Special Noodles","Veg Biryani","Veg Sandwich","Pizza Friday","Pancakes")
-    private val desc = arrayOf("non veg","pure veg","pure veg","customizable","pure veg")
-    private val img = arrayOf(R.drawable.a,R.drawable.a,R.drawable.a,R.drawable.a,R.drawable.a)
+    private val texts =
+        arrayOf("Special Noodles", "Veg Biryani", "Veg Sandwich", "Pizza Friday", "Pancakes")
+    private val desc = arrayOf("non veg", "pure veg", "pure veg", "customizable", "pure veg")
+    private val img = arrayOf(R.drawable.a, R.drawable.a, R.drawable.a, R.drawable.a, R.drawable.a)
 
 
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var recyclerView: RecyclerView
+    lateinit var linear_bot_chat: LinearLayout
+    lateinit var linear_doctor_chat: LinearLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +62,7 @@ class HomeFragment : Fragment() {
 
         var database: FirstAidItemDao = FirstAidItemDatabase.getDatabase(context).getDao()
         val getDataThread = Thread {
-            Log.d("tagRifat","All Data: "+ database.getAllData())
+            Log.d("tagRifat", "All Data: " + database.getAllData())
         }
         getDataThread.start()
 
@@ -66,22 +72,31 @@ class HomeFragment : Fragment() {
 
     private fun init(view: View, context: Context) {
 
-            val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-            recyclerView.layoutManager = LinearLayoutManager(context)
-            recyclerView.adapter = SubItemAdapter(img,texts,desc)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = SubItemAdapter(img, texts, desc)
+        linear_bot_chat = view.findViewById(R.id.linear_bot_chat)
+        linear_doctor_chat = view.findViewById(R.id.linear_doctor_chat)
+
+
+        linear_bot_chat.setOnClickListener {
+            loadFragment(ChatbotFragment())
+        }
+
+        linear_doctor_chat.setOnClickListener {
+
+        }
+
     }
 
 
-    private fun loadFragment(fragment: Fragment){
+    private fun loadFragment(fragment: Fragment) {
 //        val context: Context = requireContext()
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fl1, fragment)
         transaction.disallowAddToBackStack()
         transaction.commit()
     }
-
-
-
 
 
 //    private fun loadDatabaseAndData() {
@@ -93,7 +108,6 @@ class HomeFragment : Fragment() {
 //        }
 //        getDataThread.start()
 //    }
-
 
 
 }
