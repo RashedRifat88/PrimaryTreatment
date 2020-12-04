@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.egsystem.primarytreatment.R
 import com.egsystem.primarytreatment.room.FirstAidItemDao
 import com.egsystem.primarytreatment.room.FirstAidItemEntity
+import com.egsystem.primarytreatment.ui.chat.chatbot.ui.ChatbotActivity
 import com.egsystem.primarytreatment.ui.chat.chatbot.ui.ChatbotFragment
 import com.egsystem.primarytreatment.ui.home.adapter.SubItemAdapter
 import com.egsystem.roomkot.FirstAidItemDatabase
@@ -80,12 +81,19 @@ class HomeFragment : Fragment() {
 
 
         linear_bot_chat.setOnClickListener {
-            loadFragment(ChatbotFragment())
+//            loadFragment(ChatbotFragment())
+
+            val intent = Intent(context, ChatbotActivity::class.java)
+            intent.putExtra("from_where","HomeFragment")
+            startActivity(intent)
         }
 
         linear_doctor_chat.setOnClickListener {
 
         }
+
+
+
 
     }
 
